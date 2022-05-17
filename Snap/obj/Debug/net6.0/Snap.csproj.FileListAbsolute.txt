@@ -1,0 +1,15 @@
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/bin/Debug/net6.0/Snap
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/bin/Debug/net6.0/Snap.deps.json
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/bin/Debug/net6.0/Snap.runtimeconfig.json
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/bin/Debug/net6.0/Snap.dll
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/bin/Debug/net6.0/Snap.pdb
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.csproj.AssemblyReference.cache
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.AssemblyInfoInputs.cache
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.AssemblyInfo.cs
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.csproj.CoreCompileInputs.cache
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.dll
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/refint/Snap.dll
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.pdb
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/Snap.genruntimeconfig.cache
+/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/Debug/net6.0/ref/Snap.dll

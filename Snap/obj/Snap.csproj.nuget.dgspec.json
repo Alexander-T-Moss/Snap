@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/Snap.csproj": {}
+  },
+  "projects": {
+    "/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/Snap.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/Snap.csproj",
+        "projectName": "Snap",
+        "projectPath": "/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/Snap.csproj",
+        "packagesPath": "/Users/alexanderthorunnarson-moss/.nuget/packages/",
+        "outputPath": "/Users/alexanderthorunnarson-moss/Documents/C# Programming/Snap/Snap/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/alexanderthorunnarson-moss/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
