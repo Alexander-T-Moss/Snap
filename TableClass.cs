@@ -4,11 +4,13 @@ public class Table
 {
     private List<Player> Players;
     private Deck Deck;
+    private int StartingDeckSize;
     private int CurrentPlayer = 0;
 
     public Table(Deck deck, List<Player> players)
     {
         Deck = deck;
+        StartingDeckSize = deck.Size();
         Players = players;
     }
 
@@ -27,33 +29,25 @@ public class Table
         }
     }
 
+    public string PlayerName(int playerID)
+    {
+        return Players[playerID].GetName();
+    }
+
     public void NextMove()
     {
-        CurrentPlayer++;
 
-        if(CurrentPlayer >= Players.Count())
+        if (CurrentPlayer >= Players.Count())
         {
             CurrentPlayer = 0;
         }
 
         Players[CurrentPlayer].DrawCard();
+
+        CurrentPlayer++;
     }
 
-    public void DisplayTable()
-    {
-        foreach (Player player in Players)
-        {
-            if (!player.ShownDeckEmpty())
-            {
-                Console.WriteLine(player.GetName() + "'s top card number is: " + player.GetTopShownCard().GetNumber());
-            }
-            else
-            {
-                Console.WriteLine(player.GetName() + "'s has no cards in their shown deck yet");
-            }
-            Console.WriteLine("They have " + player.GetHiddenDeckSize() + " cards left to reveal\n");
-        }
-    }
+    
     
     public bool SnapPresent()
     {
@@ -61,7 +55,14 @@ public class Table
 
         foreach (Player player in Players)
         {
-            topCardNumbers.Add(player.GetTopShownCard().GetNumber());
+            if(player.GetTopShownCard() != null)
+            {
+                topCardNumbers.Add(player.GetTopShownCard().GetNumber());
+            }
+            else
+            {
+                return false;
+            }
         }
 
         if (topCardNumbers.Count != topCardNumbers.Distinct().Count())
@@ -81,5 +82,63 @@ public class Table
             Players[playerID].CollectDeck(player.PassOverShownDeck());
         }
     }
-    
+
+    public bool IfPlayerOut()
+    {
+        foreach(Player player in Players)
+        {
+            if(player.GetHiddenDeckSize() == 0 && player.GetShownDeckSize() == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Player? Winner()
+    {
+        foreach(Player player in Players)
+        {
+            if(player.GetHiddenDeckSize() == StartingDeckSize)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
+
+
+    public void DisplayTable()
+    {
+        Console.Clear();
+        foreach (Player player in Players)
+        {
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            Console.WriteLine();
+            Console.WriteLine(player.GetName());
+            Console.WriteLine();
+
+            if (!player.ShownDeckEmpty())
+            {
+                Console.WriteLine("Last Drawn Card: " + player.GetTopShownCard().GetNumber() + " of " + player.GetTopShownCard().GetSuit());
+            }
+            else
+            {
+                Console.WriteLine("Yet to draw a card this round");
+            }
+            Console.WriteLine("\nThey have " + player.CardsCount() + " cards in total,\nand " + player.GetHiddenDeckSize() + " in their hidden pile\n");
+        }
+        Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+
+        if(CurrentPlayer >= Players.Count())
+        {
+            Console.WriteLine("\nPress spacebar to make " + Players[0].GetName() + " draw a card");
+        }
+        else
+        {
+            Console.WriteLine("\nPress spacebar to make " + Players[CurrentPlayer].GetName() + " draw a card");
+        }
+        
+    }
+
 }

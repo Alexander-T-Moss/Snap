@@ -2,17 +2,15 @@
 
 public class Player
 {
-	public Deck PlayersHiddenDeck;
-	public Deck PlayersShownDeck;
+	public Deck HiddenDeck;
+	public Deck ShownDeck;
 	public string Name;
-	private int PlayerID;
 
-	public Player(string name, int playerID)
+	public Player(string name)
 	{
 		Name = name;
-		playerID = playerID;
-		PlayersHiddenDeck = new(true);
-		PlayersShownDeck = new(true);
+		HiddenDeck = new(true);
+		ShownDeck = new(true);
 	}
 
 	public string GetName()
@@ -20,14 +18,9 @@ public class Player
 		return Name;
     }
 
-	public int GetPlayerID()
-    {
-		return PlayerID;
-    }
-
 	public bool ShownDeckEmpty()
     {
-		if(PlayersShownDeck.Empty())
+		if(ShownDeck.Empty())
         {
 			return true;
         }
@@ -39,7 +32,7 @@ public class Player
 
 	public bool HiddenDeckEmpty()
 	{
-		if (PlayersHiddenDeck.Empty())
+		if (HiddenDeck.Empty())
 		{
 			return true;
 		}
@@ -51,49 +44,63 @@ public class Player
 
 	public Deck PassOverShownDeck()
     {
-		Deck tempDeck = PlayersShownDeck;
-		PlayersShownDeck = new(true);
+		Deck tempDeck = ShownDeck;
+		ShownDeck = new(true);
 		return tempDeck;
     }
 
 	public void CollectDeck(Deck deck)
     {
-		PlayersHiddenDeck.Merge(deck);
+		HiddenDeck.Merge(deck);
     }
 
 	public int GetHiddenDeckSize()
     {
-		return PlayersHiddenDeck.Size();
+		return HiddenDeck.Size();
     }
-	// Returns and removes top card from PlayersHiddenDeck //
+
+	public int GetShownDeckSize()
+	{
+		return ShownDeck.Size();
+	}
+
+	public int CardsCount()
+    {
+		return HiddenDeck.Size() + ShownDeck.Size();
+    }
+
 	public void DrawCard() 
     {
-        PlayersShownDeck.AddToTop(PlayersHiddenDeck.GetTopCard());
-        PlayersHiddenDeck.RemoveTopCard();
+		if(HiddenDeck.Empty())
+        {
+			Console.WriteLine(Name + " Hidden Deck Is Empty");
+			ShownDeck.Flip();
+			HiddenDeck.Merge(ShownDeck);
+			ShownDeck = new(true);
+        }
+		ShownDeck.AddToTop(HiddenDeck.GetTopCard());
+		HiddenDeck.RemoveTopCard();
     }
 
-	// Adds card to top of hidden deck
 	public void AddToHiddenDeck(Card card)
     {
-		PlayersHiddenDeck.AddToTop(card);
+		HiddenDeck.AddToTop(card);
     }
 
-	// Returns "top" card from this.PlayersHiddenDeck unless it's empty and returns null
 	public Card? GetTopHiddenCard()
     {
-		if (!PlayersHiddenDeck.Empty())
+		if (!HiddenDeck.Empty())
 		{
-			return PlayersHiddenDeck.GetTopCard();
+			return HiddenDeck.GetTopCard();
 		}
 		return null;
     }
 
-	// Returns "top" card from this.PlayersShownDeck unless it's empty and returns null
 	public Card? GetTopShownCard()
 	{
-		if (!PlayersShownDeck.Empty())
+		if (!ShownDeck.Empty())
 		{
-			return PlayersShownDeck.GetTopCard();
+			return ShownDeck.GetTopCard();
 		}
 		return null;
 	}

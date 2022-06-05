@@ -6,7 +6,6 @@ public class Deck
 
     List<Card> deck = new();
 
-    // Creates deck with custumization - defualts a standard deck of 52 cards and 4 suits
     public Deck(bool emptyDeck = false, int cardsPerSort = 13, List<string>? sorts = null)
     {
         if (!emptyDeck)
@@ -27,20 +26,16 @@ public class Deck
         }
     }
 
-
-    // Returns how many Card objects a Deck contains
     public int Size()
     {
         return deck.Count;
     }
 
-    // Adds card to the "top" of the Deck's list
     public void AddToTop(Card card)
     {
         deck.Add(card);
     }
 
-    // Returns TRUE if deck contains no elements
     public bool Empty()
     {
         if (Size() == 0)
@@ -53,23 +48,20 @@ public class Deck
         }
     }
 
-    // Removes all cards from the deck
     public void Clear()
     {
         deck = new();
     }
 
-    // Returns top card in deck or "null" if it is empty
     public Card? GetTopCard()
     {
         if (!Empty())
         {
-            return deck[^1]; // deck[^1] is the same as deck[deck.Count -1]
+            return deck[^1];
         }
         return null;
     }
 
-    // Removes card at "top" of the deck
     public void RemoveTopCard()
     {
         if (!Empty())
@@ -78,7 +70,6 @@ public class Deck
         }
     }
 
-    // Adds another deck of cards to "bottom" of this deck
     public void Merge(Deck addedCards)
     {
         while (!addedCards.Empty())
@@ -88,10 +79,17 @@ public class Deck
         }
     }
 
-    // Splits deck up sequentially between players
-    
+    public void Flip()
+    {
+        List<Card> tempDeck = new();
+        while (Size() > 0)
+        {
+            tempDeck.Add(GetTopCard());
+            RemoveTopCard();
+        }
+        deck = tempDeck;
+    }
 
-    // Shuffles the card order for self
     public void Shuffle()
     {
         List<Card> tempDeck = new();

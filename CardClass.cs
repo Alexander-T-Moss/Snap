@@ -11,17 +11,13 @@ public class Card
         cardSuit = suit;
  	}
 
-    // Returns self's cardSuit
     public string GetSuit()
     {
         return cardSuit;
     }
 
-    // Returns self's cardNumber
     public int GetNumber()
     {
         return cardNumber;
     }
 }
-
-
